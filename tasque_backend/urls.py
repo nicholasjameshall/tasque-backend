@@ -23,11 +23,10 @@ from django.conf.urls import url, include
 from rest_framework import routers
 from rest_framework.authtoken import views
 
-from tasque_rest.views import (TaskViewSet, UserViewSet, ProjectViewSet,
+from tasque_rest.views import (TaskViewSet, ProjectViewSet,
     CustomFieldViewSet, HyperlinkResourceViewSet, MilestoneViewSet, login, Logout, VerifyToken)
 
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
 router.register(r'projects', ProjectViewSet)
 router.register(r'tasks', TaskViewSet)
 router.register(r'customfields', CustomFieldViewSet)
