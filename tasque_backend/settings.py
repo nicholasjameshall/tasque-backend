@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'vj$iy!a-5i+(@_s-*7_y95ql5ka)16
 DEBUG = False
 #DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['tasque.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['tasque.herokuapp.com', 'tasque-backend.herokuapp.com', 'localhost']
 
 CSRF_COOKIE_SECURE = True
 # Application definition
