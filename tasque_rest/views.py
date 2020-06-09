@@ -44,6 +44,11 @@ def login(request):
         }, status=401)
 
 @permission_classes((permissions.AllowAny,))
+class UserCreateAPIView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+@permission_classes((permissions.AllowAny,))
 class Logout(APIView):
     def get(self, request, format=None):
         # simply delete the token to force a login

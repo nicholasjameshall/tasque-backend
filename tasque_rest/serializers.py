@@ -44,8 +44,15 @@ class ProjectSerializer(serializers.HyperlinkedModelSerializer):
         return Project.objects.create(**validated_data, user_id=user)
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    projects = ProjectSerializer(source='project_set', many=True)
-
     class Meta:
         model = User
-        fields = ['url', 'projects', 'username', 'email', 'is_staff']
+        fields = ['username', 'email', 'password']
+        extra_kwargs = {
+            'password': {'write_only': True}
+        }
+
+    def create(self, validated_data):
+        user = super(UserSerializer, self).create(validated_data)
+        user.set_password(validated_data.get('password'))
+        user.save()
+        return user

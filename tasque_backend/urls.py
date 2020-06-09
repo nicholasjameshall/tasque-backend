@@ -23,7 +23,7 @@ from django.conf.urls import url, include
 from rest_framework import routers
 from rest_framework.authtoken import views
 
-from tasque_rest.views import (TaskViewSet, ProjectViewSet,
+from tasque_rest.views import (TaskViewSet, ProjectViewSet, UserCreateAPIView,
     CustomFieldViewSet, HyperlinkResourceViewSet, MilestoneViewSet, login, Logout, VerifyToken)
 
 router = routers.DefaultRouter()
@@ -41,6 +41,7 @@ urlpatterns = [
     url(r'^login/', views.obtain_auth_token),
     url(r'^logout/',  Logout.as_view()),
     url(r'^verify_token/', VerifyToken.as_view()),
+    url(r'^signup/',  UserCreateAPIView.as_view()),
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
