@@ -5,7 +5,8 @@ STATUSES = [
     ('new', 'New'),
     ('taken', 'Taken'),
     ('completed', 'Completed'),
-    ('deleted', 'Deleted')
+    ('deleted', 'Deleted'),
+    ('on_hold', 'On Hold')
 ]
 
 DOMAINS = [
